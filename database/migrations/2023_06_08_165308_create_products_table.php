@@ -20,6 +20,7 @@ return new class extends Migration
             $table->float('sale_price')->nullable();
             $table->integer('qty');
             $table->foreignId('category_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
