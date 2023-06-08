@@ -62,17 +62,17 @@
 
                                         <td>
                                             <p
-                                                class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $item->created_at->format('Y-m-d') }}</p>
+                                                class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $item->created_at }}</p>
                                         </td>
 
                                         <td>
                                             <div class="d-flex justify-content-end flex-shrink-0">
-                                                <form action="{{route('category.restore',$item->id)}}" method="post">
+                                                <form action="{{route('admin.category.restore',$item->id)}}" method="post">
                                                     @csrf
                                                     @method('put')
                                                     <input type="submit" value="استعادة" class="btn btn-sm btn-success" style="margin-left: 15px" onclick="return confirm('هل تريد الاسترجاع?')">
                                                 </form>
-                                                <form action="{{route('category.forceDelete',$item->id)}}" method="post">
+                                                <form action="{{route('admin.category.forceDelete',$item->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <input type="submit" value="حذف نهائي" class="btn btn-sm btn-danger" style="margin-left: 15px" onclick="return confirm('هل تريد الحذف?')">

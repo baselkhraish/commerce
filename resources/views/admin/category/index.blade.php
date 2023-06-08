@@ -1,90 +1,83 @@
 @extends('layouts.admin')
-@section('title','الأقسام')
+@section('title', 'الأقسام')
 @section('content')
 
 
-<!--begin::Post-->
-<div class="post d-flex flex-column-fluid" id="kt_post">
-    <!--begin::Container-->
-    <div id="kt_content_container" class="container-xxl">
-        <!--begin::Row-->
-        <div class="row gy-5 g-xl-8">
-            <!--begin::Col-->
-            <div class="col-xl-12">
-                <!--begin::Tables Widget 9-->
-                <div class="card card-xl-stretch mb-5 mb-xl-8">
-                    <!--begin::Header-->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="card-header border-0 pt-5">
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bolder fs-3 mb-1">الأقسام</span>
-                                <span class="text-muted mt-1 fw-bold fs-7">{{ $categories->count() }} قسم</span>
-                            </h3>
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Row-->
+            <div class="row gy-5 g-xl-8">
+                <!--begin::Col-->
+                <div class="col-xl-12">
+                    <!--begin::Tables Widget 9-->
+                    <div class="card card-xl-stretch mb-5 mb-xl-8">
+                        <!--begin::Header-->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="card-header border-0 pt-5">
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="card-label fw-bolder fs-3 mb-1">الأقسام</span>
+                                    <span class="text-muted mt-1 fw-bold fs-7">{{ $categories->count() }} قسم</span>
+                                </h3>
+                            </div>
+                            <div>
+                                <a href="{{ route('admin.category.trash') }}" class="btn btn-sm btn-primary">سلة
+                                    المحذوفات</a>
+                            </div>
                         </div>
-                        <div>
-                            <a href="{{ route('admin.category.trash') }}" class="btn btn-sm btn-primary">سلة المحذوفات</a>
-                        </div>
-                    </div>
 
 
 
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body py-3">
-                        <!--begin::Table container-->
-                        <div class="table-responsive">
-                            <!--begin::Table-->
-                            <table class="table table-hover table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
-                                <!--begin::Table head-->
-                                <thead>
-                                    <tr class="fw-bolder text-muted">
-                                        <th class="w-25px">#</th>
-                                        <th class="min-w-200px">اسم القسم</th>
-                                        <th class="min-w-150px">الحالة</th>
-                                        <th class="min-w-150px">تاريخ الإضافة</th>
-                                        <th class="min-w-100px text-end">الحركات</th>
-                                    </tr>
-                                </thead>
-                                <!--end::Table head-->
-                                <!--begin::Table body-->
-                                <tbody>
-                                    @foreach ($categories as $item)
-                                    <tr>
-                                        <td>
-                                            <p class="font-weight-bold">{{ $item->id }}</p>
-                                        </td>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body py-3">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table table-hover table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <tr class="fw-bolder text-muted">
+                                            <th class="w-25px">#</th>
+                                            <th class="min-w-200px">الاسم</th>
+                                            <th class="min-w-150px">الصورة</th>
+                                            <th class="min-w-150px">الأب</th>
+                                            <th class="min-w-100px text-end">الحركات</th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody>
+                                        @foreach ($categories as $item)
+                                            <tr>
+                                                <td>
+                                                    <p class="font-weight-bold">{{ $item->id }}</p>
+                                                </td>
 
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                    <p
-                                                        class="text-dark fw-bolder text-hover-primary fs-6">{{ $item->name }}</p>
-                                            </div>
-                                        </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="text-dark fw-bolder text-hover-primary fs-6">
+                                                            {{ $item->name }}</p>
+                                                    </div>
+                                                </td>
 
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                    <p class="text-dark fw-bolder text-hover-primary fs-6">
-                                                        @if ($item->status == 1)
-                                                            <span class="text-success">نشط</span>
-                                                        @else
-                                                            <span class="text-danger">غير نشط</span>
-                                                        @endif
-                                                    </p>
-                                            </div>
-                                        </td>
+                                                <td>
+                                                    <img src="{{ asset('uploads/images/category/'.$item->image) }}" alt="" width="50">
+                                                </td>
 
-                                        <td>
-                                            <p
-                                                class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $item->created_at->format('Y-m-d') }}</p>
-                                        </td>
+                                                <td>
+                                                    <p class="text-dark fw-bolder text-hover-primary d-block fs-6">
+                                                        {{ $item->parent->name }}</p>
+                                                </td>
 
-                                        <td>
-                                            <div class="d-flex justify-content-end flex-shrink-0">
-                                                <a href="{{ route('category.edit',$item->id) }}"
-                                                    class="btn btn-success btn-bg-light btn-sm me-1">
-                                                    تعديل
-                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg') }}-->
-                                                    {{-- <span class="svg-icon svg-icon-3">
+                                                <td>
+                                                    <div class="d-flex justify-content-end flex-shrink-0">
+                                                        <a href="{{ route('admin.category.edit', $item->id) }}"
+                                                            class="btn btn-primary btn-bg-light btn-sm me-1">
+                                                            <i class="fas fa-edit"></i>
+                                                            <!--begin::Svg Icon | path: icons/duotune/art/art005.svg') }}-->
+                                                            {{-- <span class="svg-icon svg-icon-3">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                             height="24" viewBox="0 0 24 24" fill="none">
                                                             <path opacity="0.3"
@@ -95,10 +88,10 @@
                                                                 fill="currentColor" />
                                                         </svg>
                                                     </span> --}}
-                                                    <!--end::Svg Icon-->
-                                                </a>
+                                                            <!--end::Svg Icon-->
+                                                        </a>
 
-                                                {{-- <a
+                                                        {{-- <a
                                                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                     <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg') }}-->
                                                     <span class="svg-icon svg-icon-3">
@@ -118,35 +111,38 @@
                                                     <!--end::Svg Icon-->
                                                 </a> --}}
 
-                                                <form action="{{route('category.destroy',$item->id)}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <input type="submit" value="حذف" class="btn btn-sm btn-danger" style="margin-left: 15px" onclick="return confirm('هل أنت متأكد من عملية الحذف?')">
-                                                </form>
+                                                        <form class="d-inline" action="{{ route('admin.category.destroy', $item->id) }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                                <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
+                                                        </form>
 
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
-                                </tbody>
-                                <!--end::Table body-->
-                            </table>
-                            <!--end::Table-->
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                                <!--end::Table-->
+                                {{ $categories->links() }}
+                            </div>
+                            <!--end::Table container-->
                         </div>
-                        <!--end::Table container-->
+                        <!--begin::Body-->
                     </div>
-                    <!--begin::Body-->
+                    <!--end::Tables Widget 9-->
                 </div>
-                <!--end::Tables Widget 9-->
+                <!--end::Col-->
             </div>
-            <!--end::Col-->
+            <!--end::Row-->
         </div>
-        <!--end::Row-->
+        <!--end::Container-->
     </div>
-    <!--end::Container-->
-</div>
-<!--end::Post-->
+    <!--end::Post-->
 
 @stop

@@ -8,7 +8,7 @@
         <div id="kt_content_container" class="container-xxl">
 
 
-            <form action="{{ route('admin.category.update',$category->id) }}" method="post" id="kt_ecommerce_add_category_form" class="form d-flex flex-column flex-lg-row">
+            <form action="{{ route('admin.category.update',$category->id) }}" method="post" id="kt_ecommerce_add_category_form" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 @include('admin.category._form', [
