@@ -73,17 +73,19 @@
             <!--begin::Select2-->
             <select name="parent_id" class="form-select mb-2  @error('parent_id') is-invalid @enderror" data-control="select2" data-placeholder="Select an option"
                 data-allow-clear="true">
-                <option></option>
-                
+                <option selected disabled>--اختر--</option>
+
                 @foreach ($categories as $item)
                     <option value="{{ $item->id }}"  {{ $category->parent_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                 @endforeach
             </select>
-            @error('parent_id')
+            {{-- @error('parent_id')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror
+
+
+            @enderror --}}
             <!--end::Select2-->
             <!--begin::Description-->
             <div class="text-muted fs-7 mb-7">أضف القسم إلى أب</div>
@@ -100,6 +102,7 @@
 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
     <!--begin::General options-->
     <div class="card card-flush py-4">
+        @include('admin.parts.errors')
         <!--begin::Card header-->
         <div class="card-header">
             <div class="card-title">
@@ -119,11 +122,11 @@
                 <!--begin::Input-->
                 <input type="text" name="name" class="form-control mb-2  @error('name') is-invalid @enderror"
                     value="{{ old('name', $category->name) }}" />
-                @error('name')
+                {{-- @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
-                @enderror
+                @enderror --}}
                 <!--end::Input-->
 
             </div>

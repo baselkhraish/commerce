@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="menu-item">
-                            <a class="menu-link {{ Route::is('category.create') ? 'active' : '' }}"
+                            <a class="menu-link {{ Route::is('admin.category.create') ? 'active' : '' }}"
                                 href="{{ route('admin.category.create') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
