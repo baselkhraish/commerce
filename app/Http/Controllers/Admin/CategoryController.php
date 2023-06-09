@@ -17,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-            $categories = Category::orderBy('id','DESC')->paginate(10);
+            $categories = Category::with('parent','product')->withCount('product')->orderBy('id','DESC')->paginate(10);
             return view('admin.category.index',compact('categories'));
     }
 
@@ -64,7 +64,9 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::findOrFail($id);
-        $categories = Category::whereNull('parent_id')->where('parent_id','!=',$category->id)->get();
+        $categories = Category::whereNull('parent_id')->where('id','<>',$category->id)->get();
+
+        // dd($categories);
         return view('admin.category.edit',compact('category','categories'));
     }
 

@@ -160,7 +160,12 @@
     <!--end::Javascript-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
+        tinymce.init({
+            selector: '.mytextarea'
+        });
+
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',

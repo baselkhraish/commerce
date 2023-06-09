@@ -42,6 +42,7 @@
                                             <th class="w-25px">#</th>
                                             <th class="min-w-200px">الاسم</th>
                                             <th class="min-w-150px">الصورة</th>
+                                            <th class="min-w-150px">عدد المنتجات</th>
                                             <th class="min-w-150px">الأب</th>
                                             <th class="min-w-100px text-end">الحركات</th>
                                         </tr>
@@ -64,6 +65,12 @@
 
                                                 <td>
                                                     <img src="{{ asset('uploads/images/category/'.$item->image) }}" alt="" width="50">
+                                                </td>
+
+                                                <td>
+                                                    <p class="text-dark fw-bolder text-hover-primary d-block fs-6">
+                                                        <span class="badge badge-primary"> {{ $item->product_count }}</span>
+                                                    </p>
                                                 </td>
 
                                                 <td>

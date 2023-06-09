@@ -93,7 +93,11 @@
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <p class="text-dark fw-bolder text-hover-primary fs-6">
-                                                            {{ $item->qty }}
+                                                            @if ($item->qty > 10)
+                                                                <span class="badge badge-success">{{ $item->qty }}</span>
+                                                            @elseif ($item->qty < 20)
+                                                                <span class="badge badge-danger">{{ $item->qty }}</span>
+                                                            @endif
                                                         </p>
                                                     </div>
                                                 </td>
@@ -164,6 +168,7 @@
                                     <!--end::Table body-->
                                 </table>
                                 <!--end::Table-->
+                                {{ $product->links() }}
                             </div>
                             <!--end::Table container-->
                         </div>

@@ -177,7 +177,7 @@
                     <!--end::Label-->
                     <!--begin::Editor-->
                     <div class="form-group">
-                        <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1" rows="8">{{ old('description', $product->description) }}</textarea>
+                        <textarea name="description" class="mytextarea form-control @error('description') is-invalid @enderror" id="exampleFormControlTextarea1" rows="8">{{ old('description', $product->description) }}</textarea>
                     </div>
                     <!--end::Editor-->
                 </div>

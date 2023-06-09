@@ -73,8 +73,10 @@
             <!--begin::Select2-->
             <select name="parent_id" class="form-select mb-2  @error('parent_id') is-invalid @enderror" data-control="select2" data-placeholder="Select an option"
                 data-allow-clear="true">
-                <option selected disabled>--اختر--</option>
-
+                <option></option>
+                {{-- @php
+                    $categories = App\Models\Category::all();
+                @endphp --}}
                 @foreach ($categories as $item)
                     <option value="{{ $item->id }}"  {{ $category->parent_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                 @endforeach
