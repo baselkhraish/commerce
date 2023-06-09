@@ -18,7 +18,7 @@
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bolder fs-3 mb-1">الأقسام المحذوفة</span>
-                                <span class="text-muted mt-3 fw-bold fs-7">{{ $categories->count() }} قسم</span>
+                                <span class="text-muted mt-3 fw-bold fs-7">{{ $categories->count() }}  قسم محذوف</span>
                             </h3>
                         </div>
                         <div>

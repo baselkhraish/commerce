@@ -36,7 +36,9 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-
+        $request->validate([
+            'image'=> 'required',
+        ]);
         $new_image = rand().rand().time().$request->file('image')->getClientOriginalName();
         $request->file('image')->move(public_path('uploads/images/category/'),$new_image);
         Category::create([
@@ -69,7 +71,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CategoryRequest $request, string $id)
     {
         $category = Category::findOrFail($id);
 
