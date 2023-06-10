@@ -12,4 +12,5 @@ class Payment extends Model
     use SoftDeletes;
 
     protected $guarded=[];
+    
 }

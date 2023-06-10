@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('order_id');
             $table->float('total');
-            $table->foreignId('transaction_id');
+            $table->text('transaction_id');
             $table->timestamps();
         });
     }

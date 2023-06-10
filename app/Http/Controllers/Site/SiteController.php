@@ -14,12 +14,16 @@ class SiteController extends Controller
         $categories = Category::with('child')->withCount('child')->whereNull('parent_id')->get();
         $latest_product = Product::with('category')->orderBy('id','desc')->take(3)->get();
 
-        return view('site.index',compact('categories','latest_product'));
+        $f_category = Category::with('product','child')->orderBy('id','ASC')->whereNull('parent_id')->first();
+        $l_category = Category::with('product','child')->orderBy('id','DESC')->whereNull('parent_id')->first();
+        $r_category = Category::with('product','child')->inRandomOrder()->whereNull('parent_id')->where('id','<>',$f_category->id)->where('id','<>',$l_category->id)->first();
+
+        return view('site.index',compact('categories','latest_product','r_category','f_category','l_category'));
     }
 
     public function shop()
     {
-        $product = Product::orderby('id','desc')->paginate(10);
+        $product = Product::orderby('id','desc')->paginate(12);
         return view('site.pages.shop',compact('product'));
     }
 
