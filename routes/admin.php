@@ -17,9 +17,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->name('admin.')->group(fu
 
     // Order
     Route::get('/order',[OrderController::class,'index'])->name('order');
-
-    // Payment
-    Route::get('/payment',[PaymentController::class,'index'])->name('payment');
+    Route::get('/order/details/{id}',[OrderController::class,'order_details'])->name('order_details');
 
 
     // Category

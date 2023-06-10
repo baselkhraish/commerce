@@ -122,6 +122,7 @@ class CartController extends Controller
 
             $order = Order::create([
                 'user_id' =>Auth::id(),
+                'status'=>'completed',
                 'total'=>$total,
             ]);
             Payment::create([

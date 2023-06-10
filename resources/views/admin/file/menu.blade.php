@@ -15,17 +15,17 @@
                 id="#kt_header_menu" data-kt-menu="true">
                 <div class="menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <a href="https://www.google.com/" target="_blank">إنشاء قسم جديد</a>
+                        <a href="{{ route('admin.category.create') }}" target="_blank">إنشاء قسم جديد</a>
                     </span>
                 </div>
                 <div class="menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <a href="#" target="_blank">إنشاء منتج جديد</a>
+                        <a href="{{ route('admin.product.create') }}" target="_blank">إنشاء منتج جديد</a>
                     </span>
                 </div>
                 <div class="menu-item menu-lg-down-accordion me-lg-1">
                     <span class="menu-link py-3">
-                        <a href="#" target="_blank">قائمة المبيعات</a>
+                        <a href="{{ route('admin.order') }}" target="_blank">قائمة المبيعات</a>
                     </span>
                 </div>
             </div>
