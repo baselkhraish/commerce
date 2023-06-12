@@ -69,6 +69,7 @@
                                     <ul>
                                         <li><a href="{{ route('site.index') }}">Home</a></li>
                                         <li><a href="{{ route('site.shop') }}">Shop</a></li>
+                                        <li><a href="{{ route('cart') }}">Cart</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -76,7 +77,7 @@
                         <!-- End MAinmenu Ares -->
                         <div class="col-md-2 col-sm-4 col-xs-3">
                             <ul class="menu-extra">
-                                <li><a href="{{ route('login') }}"><span class="ti-user"></span></a></li>
+                                <li><a href="{{ route('admin.index') }}" target="_blank"><span class="ti-user"></span></a></li>
                                 <li class="cart__menu"><span class="ti-shopping-cart"></span></li>
                             </ul>
                         </div>

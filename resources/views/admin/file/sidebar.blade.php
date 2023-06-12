@@ -194,7 +194,7 @@
 
 
                 {{-- User --}}
-                <div class="menu-item {{ Route::is('admin.user') ? 'here show' : '' }}">
+                {{-- <div class="menu-item {{ Route::is('admin.user') ? 'here show' : '' }}">
                     <a class="menu-link py-3 {{ Route::is('admin.user') ? 'active' : '' }}"
                         href="{{ route('admin.user') }}">
                         <span class="menu-icon">
@@ -216,7 +216,7 @@
                         </span>
                         <span class="menu-title">المستخدمين</span>
                     </a>
-                </div>
+                </div> --}}
 
                 {{-- Order --}}
                 <div class="menu-item {{ Route::is('admin.order') ? 'here show' : '' }}">

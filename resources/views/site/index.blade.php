@@ -146,7 +146,7 @@
                                                 <div class="product">
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
-                                                            <a href="#">
+                                                            <a href="{{ route('site.product',$product->id) }}">
                                                                 <img src="{{ asset('uploads/images/products/'.$product->image) }}" style="height: 250px; object-fit: cover;"
                                                                     alt="product images">
                                                             </a>
@@ -258,7 +258,7 @@
                                                 <div class="product">
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
-                                                            <a href="#">
+                                                            <a href="{{ route('site.product',$product->id) }}">
                                                                 <img src="{{ asset('uploads/images/products/'.$product->image) }}" style="height: 250px; object-fit: cover;"
                                                                     alt="product images">
                                                             </a>
@@ -375,7 +375,7 @@
                                                 <div class="product">
                                                     <div class="product__inner">
                                                         <div class="pro__thumb">
-                                                            <a href="#">
+                                                            <a href="{{ route('site.product',$product->id) }}">
                                                                 <img src="{{ asset('uploads/images/products/'.$product->image) }}" style="height: 250px; object-fit: cover;"
                                                                     alt="product images">
                                                             </a>
