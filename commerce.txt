@@ -1,0 +1,20 @@
+* users
+- id , name , email , password , type
+
+* categories
+- id , name , image , parent_id
+
+* products
+- id , name , image , description , price , sale_price , qty , category_id
+
+* cart
+- id , user_id , product_id , price , order_id 
+
+* order
+- id , user_id , total , status , special_discount , discount_type
+
+* payments
+- id , user_id , order_id , total , transaction_id
+
+* reviews 
+- id , user_id , content , product_id , star
