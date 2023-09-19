@@ -17,7 +17,8 @@ class OrderController extends Controller
     }
 
     function order_details($id) {
-        $cart = Cart::where('order_id',$id)->whereNotNull('order_id')->get();
-        return view('admin.order.order_details',compact('cart'));
+        $cart_total = Order::findorfail($id);
+        $cart = Cart::with('user','product')->where('order_id',$id)->whereNotNull('order_id')->get();
+        return view('admin.order.order_details',compact('cart','cart_total'));
     }
 }

@@ -12,14 +12,19 @@
                 <!--begin::Col-->
                 <div class="col-xl-12">
                     <!--begin::Tables Widget 9-->
-                    <div class="card card-xl-stretch mb-5 mb-xl-8">
+                    <div class="card card-xl-stretch mb-5 mb-xl-8 w-100">
                         <!--begin::Header-->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="card-header border-0 pt-5">
-                                <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bolder fs-3 mb-1">الطلبات</span>
-                                </h3>
-                            </div>
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                                <div class="w-100 card-header border-0 pt-5 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="card-title align-items-start flex-column"><span class="card-label fw-bolder fs-5 mb-1">الطلبات</span></h3>
+                                    </div>
+
+                                    <div class="d-flex align-items-center">
+                                        <span class="fw-bolder">سعر كل الطلب :</span>
+                                        <span class="badge badge-light-primary" style="font-size: 20px ;"> {{ $cart_total->total }}$</span>
+                                    </div>
+                                </div>
                         </div>
 
 
@@ -39,6 +44,7 @@
                                             <th class="min-w-200px">المنتج</th>
                                             <th class="min-w-150px">الكمية</th>
                                             <th class="min-w-150px">السعر</th>
+                                            <th class="min-w-150px">سعر الشامل</th>
                                             <th class="min-w-100px">تاريخ الشراء</th>
                                         </tr>
                                     </thead>
@@ -74,6 +80,11 @@
                                                 <td>
                                                     <p class="text-dark fw-bolder text-hover-primary d-block fs-6">
                                                         ${{ $item->price }}</p>
+                                                </td>
+
+                                                <td>
+                                                    <p class="text-dark fw-bolder text-hover-primary d-block fs-6">
+                                                        ${{ $item->price * $item->qty }}</p>
                                                 </td>
 
                                                 <td>

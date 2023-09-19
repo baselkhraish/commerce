@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -106,9 +107,18 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $category = Category::findOrFail($id);
-        Category::where('parent_id',$category->id)->update(['parent_id' => null]);
-        $category->delete();
-        return redirect()->back()->with('success','تم الحذف بنجاح');
+        $products = Product::select('category_id')->get();
+        $cat = null;
+        foreach($products as $product){
+            $cat = Category::where('id',$product->category_id)->get();
+        }
+        if($cat != null){
+            return redirect()->back()->with('success','عذراً هناك منتجات تابعة لهذا القسم لذلك لايمكن حذفه');
+        }else{
+            Category::where('parent_id',$category->id)->update(['parent_id' => null]);
+            $category->delete();
+            return redirect()->back()->with('success','تم الحذف بنجاح');
+        }
 
     }
 

@@ -246,7 +246,16 @@
 
 
 
-
+                {{-- sign out --}}
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <div class="menu-item px-5">
+                        <a href="route('logout')"
+                            onclick="event.preventDefault();
+                        this.closest('form').submit();"
+                            class="menu-link px-5">تسجيل الخروج</a>
+                    </div>
+                </form>
 
             </div>
 
